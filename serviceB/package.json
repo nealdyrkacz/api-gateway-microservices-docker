@@ -1,5 +1,5 @@
 {
-  "name": "service-a",
+  "name": "service-b",
   "version": "1.0.0",
   "description": "A simple service",
   "engines": {
@@ -9,8 +9,8 @@
     "start": "npm run tsc && node ./build/server.js",
     "tsc": "rm -r -f ./build && tsc",
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
-    "servicea:dev:start": "(ts-node-dev --tree-kill --respawn --transpile-only ./src/server.ts)",
-    "servicea:dev:stop": "pkill -f 'service-a'"
+    "serviceb:dev:start": "(ts-node-dev --tree-kill --respawn --transpile-only ./src/server.ts)",
+    "serviceb:dev:stop": "pkill -f 'service-b'"
   },
   "cacheDirectories": [
     "node_modules"
