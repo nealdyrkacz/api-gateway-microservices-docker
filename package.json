@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "setup": "npm install && cd gateway/ && npm install && cd .. && cd serviceA/ && npm install && cd .. && cd serviceB/ && npm install && cd .. && cd serviceC/ && npm install",
+    "gateway:dev:stop": "pkill -f 'gateway'"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
