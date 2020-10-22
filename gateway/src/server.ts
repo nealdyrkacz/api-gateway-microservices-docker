@@ -8,6 +8,7 @@ async function start() {
 
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   //require('./database/models/index');
+
   dotenv.config();
 
   const app = new App();

@@ -7,6 +7,8 @@ export class GatewayServiceCRoutes {
   public gatewayServiceCController: GatewayServiceCController = new GatewayServiceCController();
 
   public routes(app: express.Application): void {
-    app.route('/v0/servicec/status').get([], this.gatewayServiceCController.getStatus.bind(this.gatewayServiceCController));
+    app
+      .route('/v0/servicec/status')
+      .get([], this.gatewayServiceCController.getStatus.bind(this.gatewayServiceCController));
   }
 }

@@ -6,6 +6,6 @@ import { GatewayServiceCRoutes } from './gatewayServiceCRoutes';
 //  route: ServerRoutes | IdentityRoutes | GatewayServiceARoutes;
 //}
 
-export type GatewayRoute = ServerRoutes 
-export type GatewayServiceRoute =  GatewayServiceARoutes | GatewayServiceBRoutes | GatewayServiceCRoutes;
-export type Route = GatewayRoute | GatewayServiceRoute
+export type GatewayRoute = ServerRoutes;
+export type GatewayServiceRoute = GatewayServiceARoutes | GatewayServiceBRoutes | GatewayServiceCRoutes;
+export type Route = GatewayRoute | GatewayServiceRoute;

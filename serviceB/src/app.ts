@@ -9,6 +9,7 @@ import chalk from 'chalk';
 import 'reflect-metadata';
 import { Route } from './v0/routes/route';
 import { configureRoutesV0 } from './v0/routes';
+import morgan from 'morgan'
 //import adminBroRouter from './admin';
 
 class App {
@@ -36,7 +37,7 @@ class App {
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(cors());
     this.app.use(helmet());
-
+    this.app.use(morgan('[:date[clf]] :method :url :status :res[content-length] - :response-time ms'));
     this.configureRoutes();
   }
 

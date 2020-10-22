@@ -3,18 +3,14 @@ import { Request, Response, NextFunction } from 'express';
 import { serviceAdaptor } from '../routes/serviceAdaptor';
 
 export class GatewayServiceAController {
-
-  private adaptor: AxiosInstance
+  private adaptor: AxiosInstance;
   constructor() {
-    this.adaptor = serviceAdaptor(process.env.SERVICEA_ADAPTOR_URL)
+    this.adaptor = serviceAdaptor(process.env.SERVICEA_ADAPTOR_URL);
+    const a = 1;
   }
-  
-  public async getStatus(req: Request, res: Response) {
-  
-    const serviceAResponse = await this.adaptor.get('/v0/status');
 
+  public async getStatus(req: Request, res: Response) {
+    const serviceAResponse = await this.adaptor.get('/v0/status');
     return res.status(200).send(serviceAResponse.data);
   }
-
- 
 }

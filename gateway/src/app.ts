@@ -9,6 +9,7 @@ import chalk from 'chalk';
 import 'reflect-metadata';
 import { Route } from './v0/routes/route';
 import { configureRoutesV0 } from './v0/routes';
+import morgan from 'morgan';
 //import adminBroRouter from './admin';
 
 class App {
@@ -36,8 +37,8 @@ class App {
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(cors());
     this.app.use(helmet());
+    this.app.use(morgan('[:date[clf]] :method :url :status :res[content-length] - :response-time ms'));
     this.configureRoutes();
-
   }
 
   private configureRoutes() {
@@ -56,7 +57,9 @@ class App {
       //console.log(
       //  chalk.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DATABASE + '\n'),
       //);
-      console.log(chalk.inverse.white.bgBlack('************ GATEWAY (' + this.PORT + ') SERVER START UP *************'));
+      console.log(
+        chalk.inverse.white.bgBlack('************ GATEWAY (' + this.PORT + ') SERVER START UP *************'),
+      );
       console.log('                 ' + chalk.underline('MASTER ' + process.pid));
       for (let i = 0; i < this.cpus; i++) {
         this.spawn();

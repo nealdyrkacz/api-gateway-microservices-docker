@@ -7,6 +7,8 @@ export class GatewayServiceBRoutes {
   public gatewayServiceBController: GatewayServiceBController = new GatewayServiceBController();
 
   public routes(app: express.Application): void {
-    app.route('/v0/serviceb/status').get([], this.gatewayServiceBController.getStatus.bind(this.gatewayServiceBController));
+    app
+      .route('/v0/serviceb/status')
+      .get([], this.gatewayServiceBController.getStatus.bind(this.gatewayServiceBController));
   }
 }
