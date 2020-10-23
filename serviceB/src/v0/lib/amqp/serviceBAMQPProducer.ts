@@ -1,6 +1,6 @@
 import { connect, Options, Connection } from 'amqplib/callback_api';
 
-export class GatewayAMQPProducer {
+export class ServiceBAMQPProducer {
   static connect(queue: string, message: string): void {
     const connectionOptions: Options.Connect = {
       protocol: 'amqp',

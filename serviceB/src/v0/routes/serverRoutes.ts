@@ -7,5 +7,7 @@ export class ServerRoutes {
 
   public routes(app: express.Application): void {
     app.route('/v0/status').get(this.serverController.getStatus);
+    app.route('/v0/sendServiceAPayloadMessage').post([], this.serverController.sendServiceAPayloadMessage);
+    app.route('/v0/sendServiceCPayloadMessage').post([], this.serverController.sendServiceCPayloadMessage);
   }
 }

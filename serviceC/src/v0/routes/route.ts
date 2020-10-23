@@ -1,4 +1,3 @@
 import { ServerRoutes } from './serverRoutes';
 
-
-export type Route = ServerRoutes 
+export type Route = ServerRoutes;
