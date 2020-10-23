@@ -9,9 +9,11 @@ A simple tempate project to use to understand and work with a Microservices syst
 ## Setup & Run
 
 **.env**
+```
 SERVICEA_ADAPTOR_URL = http://localhost:5001/
 SERVICEB_ADAPTOR_URL = http://localhost:5002/
 SERVICEC_ADAPTOR_URL = http://localhost:5003/
+```
 
 1. Install RabbitMQ and Erlang.  If using Homebrew ( super easy ), Erlang should be a dependency that gets installed when installing RabbitMQ.  (Update PATH var in your bash profile script)
 2. Clone / Download Repo
