@@ -9,7 +9,7 @@ import chalk from 'chalk';
 import 'reflect-metadata';
 import { Route } from './v0/routes/route';
 import { configureRoutesV0 } from './v0/routes';
-import morgan from 'morgan'
+import morgan from 'morgan';
 //import adminBroRouter from './admin';
 
 class App {

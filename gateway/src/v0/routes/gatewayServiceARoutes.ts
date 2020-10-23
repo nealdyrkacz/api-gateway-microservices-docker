@@ -11,7 +11,11 @@ export class GatewayServiceARoutes {
       .get([], this.gatewayServiceAController.getStatus.bind(this.gatewayServiceAController));
 
     app
-      .route('/v0/servicea/sendServiceBMessage')
-      .post([], this.gatewayServiceAController.sendServiceBMessage.bind(this.gatewayServiceAController));
+      .route('/v0/servicea/sendServiceBPayloadMessage')
+      .post([], this.gatewayServiceAController.sendServiceBPayloadMessage.bind(this.gatewayServiceAController));
+
+    app
+      .route('/v0/servicea/sendServiceCPayloadMessage')
+      .post([], this.gatewayServiceAController.sendServiceCPayloadMessage.bind(this.gatewayServiceAController));
   }
 }
