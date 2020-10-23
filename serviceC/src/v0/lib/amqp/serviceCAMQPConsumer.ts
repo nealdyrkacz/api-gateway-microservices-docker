@@ -1,8 +1,15 @@
-import { connect, Channel, Connection, Options } from 'amqplib/callback_api';
-import { ServiceAMessageHandler } from './serviceAMessageHandler';
+import { connect, Connection, Message, Options } from 'amqplib/callback_api';
+import { ServiceCMessageHandler } from './handlers/serviceCMessageHandler';
+import { ServiceCPayloadHandler } from './handlers/serviceCPayloadHandler';
+import { Handler } from './handlers/handler';
 
-export class ServiceAAMQPConsumer {
-  static connect() {
+export class ServiceCAMQPConsumer {
+  connect() {
+    this.connectQueue('service_c', new ServiceCMessageHandler());
+    this.connectQueue('service_c_data', new ServiceCPayloadHandler());
+  }
+
+  private connectQueue(queue: string, handler: Handler): void {
     try {
       const connectionOptions: Options.Connect = {
         protocol: 'amqp',
@@ -15,8 +22,6 @@ export class ServiceAAMQPConsumer {
 
       connect(connectionOptions, (e: any, connection: Connection) => {
         connection.createChannel((e, channel) => {
-          const queue = 'service_a';
-
           const assertQueueOptions: Options.AssertQueue = {
             durable: false,
           };
@@ -25,7 +30,7 @@ export class ServiceAAMQPConsumer {
 
           console.log(' [*] Waiting for messages in %s. To exit press CTRL+C', queue);
 
-          channel.consume(queue, (msg: any) => ServiceAMessageHandler.handleMessage(msg.content.toString()), {
+          channel.consume(queue, (message: Message) => handler.handle(message), {
             noAck: true,
           });
         });

@@ -12,14 +12,14 @@ export class GatewayAMQPProducer {
     };
 
     connect(connectionOptions, (e: any, connection: Connection) => {
-      const channel = connection.createChannel((e, channel) => {
+      connection.createChannel((e, channel) => {
         const assertQueueOptions: Options.AssertQueue = {
           durable: false,
         };
 
         channel.assertQueue(queue, assertQueueOptions);
 
-        channel.sendToQueue(queue, Buffer.from(message));
+        channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
 
         setTimeout(() => {
           connection.close();

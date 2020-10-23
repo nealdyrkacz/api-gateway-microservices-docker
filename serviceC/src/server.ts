@@ -1,6 +1,6 @@
 import App from './app';
 import dotenv from 'dotenv';
-import { ServiceCAMQPConsumer } from './v0/lib/serviceCAMQPConsumer';
+import { ServiceCAMQPConsumer } from './v0/lib/amqp/serviceCAMQPConsumer';
 //import { db } from './database/models/index';
 
 async function start() {
@@ -11,7 +11,8 @@ async function start() {
   //require('./database/models/index');
   dotenv.config();
 
-  ServiceCAMQPConsumer.connect();
+  const serviceCConsumer = new ServiceCAMQPConsumer();
+  serviceCConsumer.connect();
 
   const app = new App();
 

@@ -1,6 +1,6 @@
 import App from './app';
 import dotenv from 'dotenv';
-import { ServiceBAMQPConsumer } from './v0/lib/serviceBAMQPConsumer';
+import { ServiceBAMQPConsumer } from './v0/lib/amqp/serviceBAMQPConsumer';
 //import { db } from './database/models/index';
 
 async function start() {
@@ -11,7 +11,8 @@ async function start() {
   //require('./database/models/index');
   dotenv.config();
 
-  ServiceBAMQPConsumer.connect();
+  const serviceBConsumer = new ServiceBAMQPConsumer();
+  serviceBConsumer.connect();
 
   const app = new App();
 
