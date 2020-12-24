@@ -23,7 +23,7 @@ class App {
 
   constructor() {
     this.app = express();
-    this.appName = 'gateway-api';
+    this.appName = 'gateway';
     this.configuration();
     this.workers = {};
     this.cpus = os.cpus().length;

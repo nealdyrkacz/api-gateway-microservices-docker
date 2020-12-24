@@ -27,4 +27,4 @@ RUN npm run build
 EXPOSE  5001
 
 # Starting pointing for the application.
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "servicea:dev:start"]

@@ -10,7 +10,7 @@
     "build": "tsc",
     "tsc": "rm -r -f ./build && tsc",
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
-    "gateway:dev:start": "(ts-node-dev --tree-kill --respawn --transpile-only ./src/server.ts)",
+    "gateway:dev:start": "(ts-node-dev --poll --tree-kill --respawn --transpile-only ./src/server.ts)",
     "gateway:dev:stop": "pkill -f 'gateway'"
   },
   "cacheDirectories": [

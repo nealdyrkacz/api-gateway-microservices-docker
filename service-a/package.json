@@ -8,7 +8,9 @@
   "scripts": {
     "start": "node ./build/server.js",
     "build": "tsc",
-    "tsc": "rm -r -f ./build && tsc"
+    "tsc": "rm -r -f ./build && tsc",
+    "servicea:dev:start": "(ts-node-dev --poll --tree-kill --respawn --transpile-only ./src/server.ts)",
+    "servicea:dev:stop": "pkill -f 'service-a'"
   },
   "cacheDirectories": [
     "node_modules"

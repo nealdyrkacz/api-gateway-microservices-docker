@@ -27,4 +27,5 @@ RUN npm run build
 EXPOSE  5000
 
 # Starting pointing for the application.
-CMD ["npm", "run", "start"]
+#CMD ["npm", "run", "start"]
+CMD ["npm", "run", "gateway:dev:start"]
