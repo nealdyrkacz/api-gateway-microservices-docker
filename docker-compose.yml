@@ -17,7 +17,8 @@ services:
     image: service-a
     restart: always
     build:
-      context: ./serviceA
+      context: ./service-a
       dockerfile: Dockerfile
     ports:
       - "5001:5001"
+
