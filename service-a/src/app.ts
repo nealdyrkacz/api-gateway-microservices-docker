@@ -23,11 +23,11 @@ class App {
 
   constructor() {
     this.app = express();
-    this.appName = 'gateway';
+    this.appName = 'service-a';
     this.configuration();
     this.workers = {};
     this.cpus = os.cpus().length;
-    this.PORT = process.env.PORT || '5000';
+    this.PORT = process.env.PORT || '5001';
     this.isDev = process.env.NODE_ENV !== 'production';
   }
 
@@ -52,9 +52,7 @@ class App {
       //console.log(
       //  chalk.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DATABASE + '\n'),
       //);
-      console.log(
-        chalk.inverse.white.bgBlack('************ GATEWAY (' + this.PORT + ') SERVER START UP *************'),
-      );
+      console.log(chalk.inverse.white.bgBlack('************ SERVICE A (' + this.PORT + ') START UP *************'));
       console.log('                 ' + chalk.underline('MASTER ' + process.pid));
       for (let i = 0; i < this.cpus; i++) {
         this.spawn();

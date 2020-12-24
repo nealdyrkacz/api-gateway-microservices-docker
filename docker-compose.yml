@@ -1,0 +1,25 @@
+# docker-compose.yml for gateway service
+version: "3.7"
+services:
+  gateway:
+    container_name: gateway
+    image: gateway
+    restart: always
+    build: ./gateway
+    env_file:
+      - ./gateway/.env
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./gateway/:/app
+      - /app/node_modules
+  service-a:
+    container_name: service-a
+    image: service-a
+    restart: always
+    build: ./service-a
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./service-a/:/app
+      - /app/node_modules

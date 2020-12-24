@@ -1,7 +1,7 @@
 {
-  "name": "gateway",
+  "name": "service-a",
   "version": "1.0.0",
-  "description": "A simple Gateway API",
+  "description": "A simple service",
   "engines": {
     "node": "12.19.0"
   },
@@ -9,27 +9,25 @@
     "start": "node ./build/server.js",
     "build": "tsc",
     "tsc": "rm -r -f ./build && tsc",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts",
-    "gateway:dev:start": "(ts-node-dev --poll --tree-kill --respawn --transpile-only ./src/server.ts)",
-    "gateway:dev:stop": "pkill -f 'gateway'"
+    "servicea:dev:start": "(ts-node-dev --poll --tree-kill --respawn --transpile-only ./src/server.ts)",
+    "servicea:dev:stop": "pkill -f 'service-a'"
   },
   "cacheDirectories": [
     "node_modules"
   ],
   "devDependencies": {
     "@types/body-parser": "^1.17.1",
+    "@types/chai": "^4.2.3",
     "@types/cors": "^2.8.6",
     "@types/dotenv": "^6.1.1",
     "@types/helmet": "0.0.44",
+    "@types/mocha": "^5.2.7",
     "@types/morgan": "^1.9.1",
     "@types/node": "^12.7.12",
-    "@typescript-eslint/eslint-plugin": "^2.7.0",
-    "@typescript-eslint/parser": "^2.7.0",
     "nodemon": "^2.0.2",
     "ts-node-dev": "^1.0.0-pre.43"
   },
   "dependencies": {
-    "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "cluster": "^0.7.7",
@@ -42,9 +40,7 @@
     "os": "^0.1.1",
     "reflect-metadata": "^0.1.13",
     "ts-node": "^8.4.1",
-    "typescript": "^3.9.6"
-  },
-  "repository": {
-    "type": "git"
+    "typescript": "^3.9.6",
+    "uuid": "^8.2.0"
   }
 }
