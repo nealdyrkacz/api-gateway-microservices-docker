@@ -12,8 +12,8 @@ async function start() {
   //require('./database/models/index');
   dotenv.config();
 
-  const serviceAConsumer = new ServiceAAMQPConsumer();
-  serviceAConsumer.connect();
+  //const serviceAConsumer = new ServiceAAMQPConsumer();
+  //serviceAConsumer.connect();
 
   const app = new App();
 

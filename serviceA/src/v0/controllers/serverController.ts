@@ -3,6 +3,7 @@ import { ServiceAAMQPProducer } from '../lib/amqp/serviceAAMQPProducer';
 
 export class ServerController {
   public async getStatus(req: Request, res: Response) {
+    console.log('******* SERVICEA');
     return res.status(200).send('Service A up and running!');
   }
   public async sendServiceBPayloadMessage(req: Request, res: Response) {

@@ -44,11 +44,6 @@ class App {
   private configureRoutes() {
     this.routes = configureRoutesV0(this.app);
     //this.routes.forEach(route => route.route.routes(this.app));
-    this.addAdminBroRoute();
-  }
-
-  private addAdminBroRoute() {
-    //this.app.use('/admin', adminBroRouter);
   }
 
   public start(): void {
