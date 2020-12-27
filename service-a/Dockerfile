@@ -1,6 +1,7 @@
 # Getting the base image for node app
 FROM node:12.20.0-alpine
 
+
 #Create the directory for application
 RUN mkdir -p /app
 
@@ -28,3 +29,4 @@ EXPOSE  5001
 
 # Starting pointing for the application.
 CMD ["npm", "run", "servicea:dev:start"]
+#ENTRYPOINT ["bin/sh", "npm", "run", "servicea:dev:start"]

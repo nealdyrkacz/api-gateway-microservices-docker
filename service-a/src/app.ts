@@ -49,11 +49,7 @@ class App {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const self = this;
     if (cluster.isMaster) {
-      //console.log(
-      //  chalk.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DATABASE + '\n'),
-      //);
-      console.log(chalk.inverse.white.bgBlack('************ SERVICE A (' + this.PORT + ') START UP *************'));
-      console.log('                 ' + chalk.underline('MASTER ' + process.pid));
+      this.logStartUpInformation();
       for (let i = 0; i < this.cpus; i++) {
         this.spawn();
       }
@@ -73,6 +69,24 @@ class App {
     this.workers[worker.process.pid] = worker;
     console.log(chalk.green('*********** WORKER: ' + worker.process.pid + ' SPAWNED ***********'));
     return worker;
+  }
+  private logStartUpInformation(): void {
+    //console.log(
+    //  chalk.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DATABASE + '\n'),
+    // );
+
+    console.log(chalk.inverse.yellow.bgBlack(`************************************************************`));
+    console.log(chalk.inverse.yellow.bgBlack(`************ NODE ENV: ${process.env.NODE_ENV} *************`));
+    console.log(chalk.inverse.yellow.bgBlack(`************************************************************\n`));
+
+    console.log(chalk.inverse.cyan.bgBlack(`************************************************************`));
+    console.log(chalk.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DB + '\n'));
+    console.log(chalk.inverse.cyan.bgBlack(`************************************************************\n`));
+
+    console.log(chalk.inverse.white.bgBlack(`************************************************************`));
+    console.log(chalk.inverse.white.bgBlack('************ EXPRESS SERVER START UP *************'));
+    console.log(chalk.inverse.white.bgBlack(`************************************************************\n`));
+    console.log('                 ' + chalk.underline('MASTER ' + process.pid));
   }
 }
 

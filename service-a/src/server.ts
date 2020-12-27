@@ -33,7 +33,7 @@ async function start() {
       //require('./redisClient');
 
       //initialize Sequelize ORM
-      //require('./database/models/index');
+      require('./database/models/index');
 
       const app = new App();
       app.start();
