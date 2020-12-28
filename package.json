@@ -1,9 +1,9 @@
 {
-    "engines": {
-      "node": "12.19.0"
-    },
-    "scripts": {
-    "setup": "npm install && cd gateway/ && npm install && cd .. && cd serviceA/ && npm install && cd .. && cd serviceB/ && npm install && cd .. && cd serviceC/ && npm install",
+  "engines": {
+    "node": "12.19.0"
+  },
+  "scripts": {
+    "setup": "npm install && cd gateway/ && npm install && cd .. && cd service-a/",
     "gateway:dev:stop": "pkill -f 'gateway'"
   },
   "devDependencies": {
@@ -16,6 +16,6 @@
     "prettier": "^1.19.1"
   },
   "dependencies": {
-    "typescript": "^3.9.6"
+    "typescript": "^4.0.5"
   }
 }

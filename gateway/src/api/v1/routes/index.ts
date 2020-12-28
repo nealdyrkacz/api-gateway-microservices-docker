@@ -1,6 +1,6 @@
-import { ServerRoutes } from './serverRoutes';
+import { ServerRoutes } from './server.routes';
 import { Route } from './route';
-import { GatewayServiceARoutes } from './gatewayServiceARoutes';
+import { GatewayServiceARoutes } from './service-a.routes';
 import express from 'express';
 
 function configureGatewayRoutes(app: express.Application): Route[] {

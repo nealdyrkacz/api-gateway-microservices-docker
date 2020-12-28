@@ -12,7 +12,7 @@ const cluster_1 = __importDefault(require("cluster"));
 const os_1 = __importDefault(require("os"));
 const chalk_1 = __importDefault(require("chalk"));
 require("reflect-metadata");
-const routes_1 = require("./v0/routes");
+const routes_1 = require("./api/v1/routes");
 const morgan_1 = __importDefault(require("morgan"));
 //import adminBroRouter from './admin';
 class App {
@@ -35,18 +35,13 @@ class App {
         this.configureRoutes();
     }
     configureRoutes() {
-        this.routes = routes_1.configureRoutesV0(this.app);
-        //this.routes.forEach(route => route.route.routes(this.app));
+        this.routes = routes_1.configureRoutes(this.app);
     }
     start() {
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const self = this;
         if (cluster_1.default.isMaster) {
-            //console.log(
-            //  chalk.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DATABASE + '\n'),
-            //);
-            console.log(chalk_1.default.inverse.white.bgBlack('************ SERVICE A (' + this.PORT + ') START UP *************'));
-            console.log('                 ' + chalk_1.default.underline('MASTER ' + process.pid));
+            this.logStartUpInformation();
             for (let i = 0; i < this.cpus; i++) {
                 this.spawn();
             }
@@ -66,6 +61,21 @@ class App {
         this.workers[worker.process.pid] = worker;
         console.log(chalk_1.default.green('*********** WORKER: ' + worker.process.pid + ' SPAWNED ***********'));
         return worker;
+    }
+    logStartUpInformation() {
+        //console.log(
+        //  chalk.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DATABASE + '\n'),
+        // );
+        console.log(chalk_1.default.inverse.yellow.bgBlack(`************************************************************`));
+        console.log(chalk_1.default.inverse.yellow.bgBlack(`************ NODE ENV: ${process.env.NODE_ENV} *************`));
+        console.log(chalk_1.default.inverse.yellow.bgBlack(`************************************************************\n`));
+        console.log(chalk_1.default.inverse.cyan.bgBlack(`************************************************************`));
+        console.log(chalk_1.default.inverse.cyan.bgBlack('\n****************** CONNECTED TO DATABASE: ' + process.env.DATABASE + '\n'));
+        console.log(chalk_1.default.inverse.cyan.bgBlack(`************************************************************\n`));
+        console.log(chalk_1.default.inverse.white.bgBlack(`************************************************************`));
+        console.log(chalk_1.default.inverse.white.bgBlack('************ EXPRESS SERVER START UP *************'));
+        console.log(chalk_1.default.inverse.white.bgBlack(`************************************************************\n`));
+        console.log('                 ' + chalk_1.default.underline('MASTER ' + process.pid));
     }
 }
 exports.default = App;
