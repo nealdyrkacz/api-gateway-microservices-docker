@@ -1,4 +1,4 @@
-import { ServerRoutes } from './serverRoutes';
+import { ServerRoutes } from './server.routes';
 import { ARoutes } from './a.routes';
 import { Route } from './route';
 import express from 'express';

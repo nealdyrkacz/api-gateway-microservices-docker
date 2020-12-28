@@ -7,5 +7,6 @@ export class ARoutes {
 
   public routes(app: express.Application): void {
     app.route('/v1/a/').get([], this.aController.getAll);
+    app.route('/v1/a/:aId').get([], this.aController.getById);
   }
 }

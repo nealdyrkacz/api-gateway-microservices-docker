@@ -1,5 +1,5 @@
-import { ServerRoutes } from './serverRoutes';
-import { GatewayServiceARoutes } from './gatewayServiceARoutes';
+import { ServerRoutes } from './server.routes';
+import { GatewayServiceARoutes } from './service-a.routes';
 
 //export interface Route {
 //  route: ServerRoutes | IdentityRoutes | GatewayServiceARoutes;

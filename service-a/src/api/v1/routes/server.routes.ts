@@ -1,6 +1,6 @@
 //import { Request, Response } from 'express';
 import express from 'express';
-import { ServerController } from '../controllers/serverController';
+import { ServerController } from '../controllers/server.controller';
 
 export class ServerRoutes {
   public serverController: ServerController = new ServerController();
