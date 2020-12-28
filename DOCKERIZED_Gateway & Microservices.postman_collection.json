@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "0036e8dd-8847-41aa-80d9-c871472651ca",
+		"name": "DOCKERIZED_Gateway & Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "A",
+			"item": [
+				{
+					"name": "Get A's ( Gateway )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/v1/a/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"a",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A By Id ( Gateway )",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/v1/a/fc6a29af-803b-4479-b5bd-996f120e0bc1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"v1",
+								"a",
+								"fc6a29af-803b-4479-b5bd-996f120e0bc1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gateway status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ServiceA status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/servicea/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"servicea",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
