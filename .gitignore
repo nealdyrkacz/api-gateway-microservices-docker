@@ -54,10 +54,7 @@ jspm_packages/
 /coverage
 
 # production
-/gateway/build
-/servicea/build
-/serviceb/build
-/servicec/build
+/*/build
 
 
 # TypeScript v1 declaration files
