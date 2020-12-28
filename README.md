@@ -24,5 +24,9 @@ DB_DIALECT=postgres
 ### Seed Service A DB
 In another terminal window -> ```docker exec -it service-a npx sequelize db:seed:all```
 
-### PG ADMIN ###
+### PG ADMIN
 A pgAdmin4 image has been added to the docker-compose, once all the containers are running go to ```localhost:8080``` which will bring in the log in screen. Use credentials found in docker-compose file.  Create a new server / db based off docker-compose service names and Service A ```.env``` file
+
+
+## Docker
+Prune images ```docker rmi $(docker images -f "dangling=true" -q)```
